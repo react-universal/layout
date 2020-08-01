@@ -1,0 +1,123 @@
+{
+  "name": "@reactuniversal/library-template",
+  "version": "0.0.1",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "start-storybook -p 9009 -s public",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint 'packages/**/*.{ts,tsx}'",
+    "storybook": "storybook start -p 7007",
+    "storybook-web": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -c .storybook -s ./public -o gh",
+    "push-docs": "gh-pages -d gh",
+    "deploy-docs": "npm run build-storybook && npm run push-docs",
+    "see-npm-package": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "build": "./node_modules/.bin/babel src --out-dir dist --ignore \"**/*.test.js\"",
+    "build-lib-watch": "tsc -w",
+    "copy-svg-to-lib": "cpx \"./packages/**/*.svg\" ./dist",
+    "copy-png-to-lib": "cpx \"./packages/**/*.png\" ./dist",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
+    "test:loki": "loki --port 9009",
+    "test:loki-update": "loki update --port 9009",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@storybook/addon-a11y": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@types/react-test-renderer": "^16.9.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "loki": "^0.20.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.13.1",
+    "react-native": "^0.62.2",
+    "react-native-web": "^0.12.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-jest": "^5.3.18",
+    "@storybook/addon-viewport": "^5.3.18",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.18",
+    "@storybook/react-native": "^5.3.18",
+    "@types/jest": "^25.2.2",
+    "@types/node": "^14.0.1",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-native": "^0.62.10",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-react-native-web": "^0.12.2",
+    "eslint": "^6.5.1",
+    "gh-pages": "^2.2.0",
+    "husky": "^4.2.5",
+    "jest": "^24.9.0",
+    "lerna": "^3.21.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-test-renderer": "16.11.0",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": true,
+    "testMatch": [
+      "<rootDir>/packages/**/**.test.tsx"
+    ]
+  },
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "react universal",
+    "react native"
+  ],
+  "description": "React Universal Template Project",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-universal/library-template"
+  },
+  "author": "Cody Pearce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-universal/library-template/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "loki": {
+    "chromeSelector": ".wrapper > *, #root > *",
+    "diffingEngine": "looks-same",
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      },
+      "chrome.a4": {
+        "target": "chrome.docker",
+        "preset": "A4 Paper"
+      }
+    },
+    "fetchFailIgnore": "localhost:1234/get"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
+  }
+}
