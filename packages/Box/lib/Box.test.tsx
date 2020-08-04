@@ -1,10 +1,10 @@
 import React from 'react';
-import Example from './Example';
+import Box from './Box';
 
 import renderer from 'react-test-renderer';
 
 test('Example Renders', () => {
-  const example = <Example text="test" />;
+  const example = <Box />;
   const tree = renderer.create(example).toJSON();
   expect(tree).toMatchSnapshot();
 });

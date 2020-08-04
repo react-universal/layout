@@ -1,0 +1,32 @@
+{
+  "name": "Box",
+  "version": "0.0.1",
+  "description": "React Universal Layout component Box",
+  "author": "codypearce <codyapearce@gmail.com>",
+  "homepage": "https://github.com/react-universal/layout#readme",
+  "license": "ISC",
+  "main": "lib/Box.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-universal/layout.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/react-universal/layout/issues"
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.2",
+    "@types/styled-system": "^5.1.10",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5"
+  }
+}

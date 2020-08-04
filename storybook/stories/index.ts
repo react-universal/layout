@@ -1,1 +1,1 @@
-import '../../packages/example/lib/Example.stories';
+import '../../packages/Box/lib/Box.stories';
